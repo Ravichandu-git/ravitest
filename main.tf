@@ -3,14 +3,14 @@ resource "aws_instance" "terraform-ec2" {
     key_name = "august-2025"
     instance_type = "t2.micro"
     tags = {
-        Name = "Ec2-terraform"
+        Name = "Ec2-1"
     }
 }
 
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
 
-  bucket = "ravi03122026"
+  bucket = "ravichandu03122026"
   acl    = "private"
 
   control_object_ownership = true
