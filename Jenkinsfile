@@ -99,5 +99,23 @@ pipeline {
                 """
             }
         }
+
+         /* ====== DESTROY SECTION ====== */
+
+        stage('Destroy Approval') {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    input message: "Are you SURE you want to DESTROY ALL INFRA?"
+                }
+            }
+        }
+
+        stage('Terraform Destroy') {
+            steps {
+                sh """
+                terraform destroy -auto-approve
+                """
+            }
+        }
     }
 }
